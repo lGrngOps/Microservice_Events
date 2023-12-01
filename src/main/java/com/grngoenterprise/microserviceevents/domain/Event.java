@@ -22,12 +22,12 @@ public class Event {
     private String title;
     private String description;
 
-    public int getRegisteredParticipants() {
-        return registeredParticipants;
+    public String getId() {
+        return id;
     }
 
-    public void setRegisteredParticipants(int registeredParticipants) {
-        this.registeredParticipants = registeredParticipants;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public int getMaxParticipants() {
@@ -38,9 +38,41 @@ public class Event {
         this.maxParticipants = maxParticipants;
     }
 
+    public int getRegisteredParticipants() {
+        return registeredParticipants;
+    }
+
+    public void setRegisteredParticipants(int registeredParticipants) {
+        this.registeredParticipants = registeredParticipants;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public Event(EventRequestDTO eventRequest){
         this.date = eventRequest.date();
-        this.maxParticipants = eventRequest.maxParticipant();
+        this.maxParticipants = eventRequest.maxParticipants();
         this.registeredParticipants = eventRequest.registeredParticipants();
         this.title = eventRequest.title();
         this.description = eventRequest.description();

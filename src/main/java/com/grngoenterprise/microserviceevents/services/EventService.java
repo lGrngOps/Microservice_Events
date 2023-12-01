@@ -48,7 +48,7 @@ public class EventService {
 
         if(isEventFull(event)) {
             throw new EventFullException();
-        }
+        } else {
 
             Subscription subscription = new Subscription(event, participantEmail);
             subscriptionRepository.save(subscription);
@@ -57,5 +57,6 @@ public class EventService {
 
             EmailRequestDTO emailRequestDTO = new EmailRequestDTO(participantEmail, "Marcou presença, jhow", " Ai dentro, pai");
             emailServiceClient.sendEmail(emailRequestDTO);
+        }
     }
 }
