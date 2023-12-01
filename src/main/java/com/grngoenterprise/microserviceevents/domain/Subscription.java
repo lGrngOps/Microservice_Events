@@ -1,17 +1,26 @@
 package com.grngoenterprise.microserviceevents.domain;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Entity(name = "subscription")
 @Table(name = "subscription")
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class Subscription {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String participantEmail;
     @ManyToOne
     private Event event;
+    private String participantEmail;
+
+    public Subscription(Event event, String participantEmail){
+        this.event = event;
+        this.participantEmail = participantEmail;
+    }
 }
